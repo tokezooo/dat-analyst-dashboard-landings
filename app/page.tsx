@@ -11,6 +11,7 @@ const variants = [
   { href: "/v8-mono", name: "V8", shape: "Editorial Columns" },
   { href: "/v9-glass", name: "V9", shape: "Layered Panels" },
   { href: "/v10-playful", name: "V10", shape: "Storyboard Funnel" },
+  { href: "/taskforce", name: "Taskforce", shape: "Project Landing" },
 ];
 
 export default function LandingIndexPage() {
