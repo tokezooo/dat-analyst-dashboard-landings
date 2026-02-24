@@ -12,6 +12,7 @@ const variants = [
   { href: "/v9-glass", name: "V9", shape: "Layered Panels" },
   { href: "/v10-playful", name: "V10", shape: "Storyboard Funnel" },
   { href: "/taskforce", name: "Taskforce", shape: "Project Landing" },
+  { href: "/taskforce-v2", name: "Taskforce V2", shape: "21st-inspired" },
 ];
 
 export default function LandingIndexPage() {
