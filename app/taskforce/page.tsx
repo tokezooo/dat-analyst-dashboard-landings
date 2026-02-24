@@ -221,6 +221,69 @@ export default function TaskforceLandingPage() {
           </div>
         </section>
 
+        <section style={{ padding: "8px 0 70px" }}>
+          <h2 style={{ fontSize: 40, marginBottom: 16, letterSpacing: "-0.03em", fontWeight: 700 }}>Capabilities grid (21st-inspired)</h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 14 }}>
+            <article style={{ background: "#fff", borderRadius: 22, padding: 22, boxShadow: "0 12px 24px -14px rgba(0,0,0,.2)" }}>
+              <p style={{ fontSize: 12, color: "#6f6f77", textTransform: "uppercase", letterSpacing: "0.12em" }}>Signal capture</p>
+              <h3 style={{ margin: "8px 0 0", fontSize: 26, letterSpacing: "-0.02em" }}>Meeting → task extraction</h3>
+              <p style={{ color: "#666" }}>Turn action items from call transcripts into linked tasks with owner and due date in seconds.</p>
+            </article>
+            <article style={{ background: "#fff", borderRadius: 22, padding: 22, boxShadow: "0 12px 24px -14px rgba(0,0,0,.2)" }}>
+              <p style={{ fontSize: 12, color: "#6f6f77", textTransform: "uppercase", letterSpacing: "0.12em" }}>Context graph</p>
+              <h3 style={{ margin: "8px 0 0", fontSize: 26, letterSpacing: "-0.02em" }}>Chat + tracker + docs</h3>
+              <p style={{ color: "#666" }}>Every microtask includes linked evidence so teams know why a change was suggested.</p>
+            </article>
+            <article style={{ background: "#fff", borderRadius: 22, padding: 22, boxShadow: "0 12px 24px -14px rgba(0,0,0,.2)" }}>
+              <h3 style={{ margin: 0, fontSize: 20 }}>Approval gates</h3>
+              <p style={{ color: "#666" }}>No blind writes. Approve every critical step.</p>
+            </article>
+            <article style={{ background: "#fff", borderRadius: 22, padding: 22, boxShadow: "0 12px 24px -14px rgba(0,0,0,.2)" }}>
+              <h3 style={{ margin: 0, fontSize: 20 }}>Workflow templates</h3>
+              <p style={{ color: "#666" }}>Standardize requirement updates, handoffs, and QA checks.</p>
+            </article>
+            <article style={{ background: "#fff", borderRadius: 22, padding: 22, boxShadow: "0 12px 24px -14px rgba(0,0,0,.2)" }}>
+              <h3 style={{ margin: 0, fontSize: 20 }}>Audit trail</h3>
+              <p style={{ color: "#666" }}>Track every AI suggestion and final user decision.</p>
+            </article>
+          </div>
+        </section>
+
+        <section style={{ padding: "8px 0 70px" }}>
+          <h2 style={{ fontSize: 40, marginBottom: 16, letterSpacing: "-0.03em", fontWeight: 700 }}>Pricing for pilot to scale</h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
+            {[
+              ["Pilot", "$990/mo", "1 team, 3 integrations, weekly enablement"],
+              ["Growth", "$2,900/mo", "Up to 5 teams, workflow library, advanced analytics"],
+              ["Enterprise", "Custom", "Private deployment, SSO, security review, SLA"],
+            ].map(([name, price, desc], i) => (
+              <article key={name} style={{ background: "#fff", borderRadius: 24, padding: 24, border: i === 1 ? "2px solid #007AFF" : "1px solid rgba(0,0,0,.06)", boxShadow: "0 14px 30px -15px rgba(0,0,0,.15)" }}>
+                <p style={{ margin: 0, fontSize: 13, textTransform: "uppercase", letterSpacing: "0.1em", color: "#6f6f77" }}>{name}</p>
+                <p style={{ margin: "10px 0 6px", fontSize: 40, fontWeight: 700, letterSpacing: "-0.03em" }}>{price}</p>
+                <p style={{ margin: 0, color: "#666", minHeight: 48 }}>{desc}</p>
+                <div style={{ marginTop: 18 }}><Btn style={{ width: "100%" }}>{name === "Enterprise" ? "Talk to sales" : "Choose plan"}</Btn></div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section style={{ padding: "8px 0 90px" }}>
+          <h2 style={{ fontSize: 40, marginBottom: 16, letterSpacing: "-0.03em", fontWeight: 700 }}>FAQ</h2>
+          <div style={{ display: "grid", gap: 10 }}>
+            {[
+              ["How long does setup take?", "Most teams launch their first workflow in 7–14 days."],
+              ["Can we start with one department?", "Yes. Pilot by function (product, ops, support) and then expand."],
+              ["Do you support strict security policies?", "Yes, including permission-aware access and private deployment options."],
+              ["Will this replace our tracker?", "No. Taskforce sits on top and syncs actions back to your existing systems."],
+            ].map(([q, a]) => (
+              <details key={q} style={{ background: "#fff", borderRadius: 16, padding: "16px 18px", boxShadow: "0 10px 20px -14px rgba(0,0,0,.2)" }}>
+                <summary style={{ cursor: "pointer", fontWeight: 600 }}>{q}</summary>
+                <p style={{ marginTop: 10, color: "#666" }}>{a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
         <section style={{ padding: "8px 0 90px", textAlign: "center" }}>
           <div style={{ background: "#fff", borderRadius: 28, padding: "44px 24px", boxShadow: "0 14px 30px -15px rgba(0,0,0,0.12)" }}>
             <h3 style={{ fontSize: 34, margin: 0, letterSpacing: "-0.02em", fontWeight: 700 }}>Ready for a fast pilot</h3>
