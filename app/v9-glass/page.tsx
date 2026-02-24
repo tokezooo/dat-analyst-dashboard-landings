@@ -1,51 +1,71 @@
 import Link from "next/link";
 
 const layers = [
-  { title: "Request Layer", text: "Incoming asks, business goals, and stakeholders." },
-  { title: "Analysis Layer", text: "Scope, acceptance criteria, dependencies, and estimates." },
-  { title: "Delivery Layer", text: "Execution state, risks, and executive summary." },
-];
-
-const plans = [
-  { name: "Team", cost: "$79", cta: "Start team trial" },
-  { name: "Scale", cost: "$199", cta: "Talk to sales" },
+  {
+    title: "Request layer",
+    text: "Capture context, owners, and required metrics before sprint planning begins.",
+  },
+  {
+    title: "Decision layer",
+    text: "Track assumptions, blockers, and acceptance criteria with timestamped approvals.",
+  },
+  {
+    title: "Delivery layer",
+    text: "Publish build status and stakeholder summaries from the same canonical thread.",
+  },
 ];
 
 export default function Page() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="flex items-center justify-between text-sm text-cyan-100/80">
+    <main className="min-h-[100dvh] bg-[#eaf4f6] px-5 py-8 text-[#102028] md:px-10 md:py-12">
+      <div className="mx-auto max-w-[1400px]">
+        <header className="flex items-center justify-between border-b border-[#c5d9df] pb-4 text-sm">
           <span className="font-semibold">dat-analyst-dashboard</span>
-          <Link href="/" className="underline">All variants</Link>
-        </div>
+          <Link href="/" className="btn-press underline underline-offset-4">
+            All variants
+          </Link>
+        </header>
 
-        <h1 className="mt-8 max-w-3xl text-4xl font-bold md:text-6xl">Layered glass layout for analytics planning clarity.</h1>
-
-        <div className="mt-12 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="space-y-4">
-            {layers.map((layer) => (
-              <article key={layer.title} className="rounded-2xl border border-cyan-200/20 bg-white/10 p-5 backdrop-blur-lg">
-                <h2 className="text-xl font-semibold">{layer.title}</h2>
-                <p className="mt-2 text-cyan-50/80">{layer.text}</p>
-              </article>
-            ))}
+        <section className="mt-8 grid gap-8 md:grid-cols-[1.3fr_1fr]">
+          <div className="fade-rise" style={{ ["--delay" as string]: "80ms" }}>
+            <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#2f7a92]">Refraction stack</p>
+            <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-6xl">
+              Layered planning surfaces with physical glass edges.
+            </h1>
+            <p className="mt-5 max-w-2xl text-[#3f5460]">
+              This variant uses restrained glass materiality with inner border refraction and subtle inset shadows.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <button className="btn-press border border-[#2f7a92] bg-[#2f7a92] px-6 py-3 font-semibold text-white hover:bg-[#235f71]">
+                Start team trial
+              </button>
+              <button className="btn-press border border-[#bdd5dc] bg-white px-6 py-3 font-semibold hover:border-[#2f7a92]">
+                Review architecture
+              </button>
+            </div>
           </div>
 
-          <aside className="rounded-2xl border border-cyan-200/25 bg-cyan-500/10 p-5 backdrop-blur-lg">
-            <h2 className="text-xl font-semibold">Choose a plan</h2>
-            <div className="mt-4 space-y-3">
-              {plans.map((plan) => (
-                <article key={plan.name} className="rounded-xl border border-white/20 bg-black/20 p-4">
-                  <p className="font-semibold">{plan.name}</p>
-                  <p className="mt-1 text-2xl font-bold">{plan.cost}</p>
-                  <button className="mt-3 w-full rounded-lg bg-cyan-300 px-4 py-2 font-semibold text-slate-900">{plan.cta}</button>
-                </article>
-              ))}
-            </div>
+          <aside className="fade-rise rounded-[1.75rem] border border-white/40 bg-white/40 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-md" style={{ ["--delay" as string]: "180ms" }}>
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#2f7a92]">State feed</p>
+            <p className="mt-3 text-sm text-[#405762]">Loading criteria templates from prior releases.</p>
+            <div className="state-skeleton mt-3 h-2 rounded bg-white/70" />
+            <p className="mt-4 text-sm text-[#405762]">Error sample: unresolved owner in scope packet.</p>
           </aside>
-        </div>
-      </section>
+        </section>
+
+        <section className="mt-8 grid gap-4 md:grid-cols-[1fr_1fr_1fr]">
+          {layers.map((layer, index) => (
+            <article
+              key={layer.title}
+              className="fade-rise rounded-[1.75rem] border border-white/40 bg-white/45 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-md"
+              style={{ ["--delay" as string]: `${240 + index * 70}ms` }}
+            >
+              <h2 className="text-xl font-semibold tracking-tight">{layer.title}</h2>
+              <p className="mt-2 text-sm text-[#405762]">{layer.text}</p>
+            </article>
+          ))}
+        </section>
+      </div>
     </main>
   );
 }

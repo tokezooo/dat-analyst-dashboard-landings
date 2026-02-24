@@ -1,39 +1,66 @@
 import Link from "next/link";
 
-const blocks = [
-  { title: "Intake Inbox", text: "Score incoming asks by business impact and effort." },
-  { title: "Definition Vault", text: "Reuse metric logic and avoid duplicate debates." },
-  { title: "Owner Matrix", text: "See who owns discovery, build, and review." },
-  { title: "Risk Radar", text: "Flag dependencies and stale assumptions early." },
-  { title: "Weekly Digest", text: "Auto-summary for PM, eng, and exec stakeholders." },
+const lanes = [
+  { lane: "Intake", status: "12 open", note: "3 without metrics" },
+  { lane: "Scope", status: "7 active", note: "2 awaiting signoff" },
+  { lane: "Build", status: "9 active", note: "1 blocked by event schema" },
+  { lane: "Review", status: "4 queued", note: "exec digest due Friday" },
+];
+
+const stream = [
+  "Revenue bridge request rerouted to growth pod.",
+  "Weekly retention definition accepted by platform team.",
+  "North America cohort dashboard moved to review.",
+  "Attribution cleanup flagged due to missing event map.",
 ];
 
 export default function Page() {
   return (
-    <main className="min-h-screen bg-zinc-950 text-zinc-100">
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="flex items-center justify-between text-sm text-zinc-400">
-          <span className="font-semibold text-zinc-200">dat-analyst-dashboard</span>
-          <Link href="/" className="underline">All variants</Link>
+    <main className="min-h-[100dvh] bg-[#0f1311] px-5 py-8 text-[#ecf0ec] md:px-10 md:py-12">
+      <div className="mx-auto max-w-[1400px]">
+        <div className="flex items-center justify-between border-b border-[#2c332e] pb-4 text-sm">
+          <span className="font-semibold">dat-analyst-dashboard</span>
+          <Link href="/" className="btn-press underline underline-offset-4">
+            All variants
+          </Link>
         </div>
 
-        <h1 className="mt-8 max-w-3xl text-4xl font-bold md:text-6xl">A dark bento command center for analytics delivery.</h1>
+        <section className="mt-7 grid gap-8 md:grid-cols-[1.1fr_1.4fr]">
+          <aside className="fade-rise" style={{ ["--delay" as string]: "80ms" }}>
+            <p className="font-mono text-xs uppercase tracking-[0.23em] text-[#d2a968]">Dense command ledger</p>
+            <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-6xl">
+              Operational clarity without card clutter.
+            </h1>
+            <p className="mt-5 max-w-xl text-[#b0bbb2]">
+              This variant removes oversized boxes and uses line-based groupings for higher information density.
+            </p>
+            <button className="btn-press mt-7 border border-[#d2a968] bg-[#d2a968] px-6 py-3 font-semibold text-[#121512] hover:bg-[#b48b4f]">
+              Enter command mode
+            </button>
+          </aside>
 
-        <div className="mt-12 grid auto-rows-[140px] gap-4 md:grid-cols-4">
-          <article className="rounded-2xl border border-zinc-700 bg-zinc-900 p-5 md:col-span-2 md:row-span-2">
-            <h2 className="text-2xl font-semibold">Plan once, update everywhere.</h2>
-            <p className="mt-3 text-zinc-300">Every requirement update propagates to tickets, summaries, and review checklists.</p>
-            <button className="mt-6 rounded-lg bg-emerald-500 px-5 py-2 font-semibold text-black">Start free</button>
-          </article>
+          <div className="fade-rise border border-[#2b312c] bg-[#121814] p-5" style={{ ["--delay" as string]: "180ms" }}>
+            <div className="grid gap-4 md:grid-cols-2">
+              {lanes.map((item) => (
+                <article key={item.lane} className="border-b border-[#2f3731] pb-4">
+                  <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#d2a968]">{item.lane}</p>
+                  <p className="mt-2 text-2xl font-semibold tracking-tight">{item.status}</p>
+                  <p className="mt-1 text-sm text-[#aeb9b0]">{item.note}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
 
-          {blocks.map((block) => (
-            <article key={block.title} className="rounded-2xl border border-zinc-800 bg-zinc-900/70 p-5">
-              <h3 className="font-semibold">{block.title}</h3>
-              <p className="mt-2 text-sm text-zinc-400">{block.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+        <section className="mt-6 fade-rise border border-[#2b312c] bg-[#121814] p-5" style={{ ["--delay" as string]: "260ms" }}>
+          <p className="font-mono text-xs uppercase tracking-[0.22em] text-[#d2a968]">Activity stream</p>
+          <ul className="mt-4 divide-y divide-[#2f3731] text-sm">
+            {stream.map((item) => (
+              <li key={item} className="py-3 text-[#b4beb6]">{item}</li>
+            ))}
+          </ul>
+        </section>
+      </div>
     </main>
   );
 }
