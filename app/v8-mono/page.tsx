@@ -1,58 +1,43 @@
 import Link from "next/link";
 
 const chapters = [
-  {
-    heading: "Intake",
-    body: "Collect every request with an owner, required metric, and decision deadline in one indexed timeline.",
-  },
-  {
-    heading: "Refinement",
-    body: "Generate scope drafts and unresolved questions so reviews start from shared language instead of memory.",
-  },
-  {
-    heading: "Delivery",
-    body: "Publish final status notes and quality checks in the same thread used for intake and approval.",
-  },
-];
+  ["Intake", "Collect request intent, owner, and target KPI in one record."],
+  ["Scope", "Expose assumptions and acceptance checks before work begins."],
+  ["Build", "Track implementation status without leaving intake context."],
+  ["Review", "Publish delivery notes and quality evidence in-thread."],
+] as const;
 
 export default function Page() {
   return (
-    <main className="min-h-[100dvh] bg-[#f7f7f5] px-5 py-8 text-[#181818] md:px-10 md:py-12">
-      <div className="mx-auto max-w-[1400px]">
-        <header className="flex items-center justify-between border-b border-[#d7d7d3] pb-4 text-sm">
+    <main className="min-h-[100dvh] bg-[#f7f7f4] px-5 py-8 text-[#1a1a1a] md:px-10 md:py-12">
+      <div className="mx-auto max-w-[1360px]">
+        <header className="flex items-center justify-between border-b border-[#d8d8d3] pb-4 text-sm">
           <span className="font-semibold">dat-analyst-dashboard</span>
-          <Link href="/" className="btn-press underline underline-offset-4">
-            All variants
-          </Link>
+          <Link href="/" className="btn-press underline underline-offset-4">All variants</Link>
         </header>
 
-        <section className="mt-8 grid gap-10 md:grid-cols-[0.85fr_1.4fr]">
+        <section className="mt-8 grid gap-10 md:grid-cols-[0.85fr_1.45fr]">
           <aside className="fade-rise" style={{ ["--delay" as string]: "80ms" }}>
-            <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#5d5d5d]">Editorial system</p>
-            <p className="mt-4 border-l-2 border-[#6e6e6e] pl-4 text-lg leading-relaxed text-[#3e3e3e]">
-              A monochrome, text-first layout for teams that prefer strict hierarchy and concise flow over decorative UI.
+            <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#616161]">Editorial columns</p>
+            <p className="mt-4 border-l-2 border-[#6d6d6d] pl-4 text-lg leading-relaxed text-[#3f3f3f]">
+              A strict monochrome treatment for teams that prefer hierarchy and copy over decorative UI.
             </p>
-            <button className="btn-press mt-7 border border-[#444] bg-[#444] px-6 py-3 font-semibold text-white hover:bg-[#323232]">
-              Request access
-            </button>
           </aside>
 
-          <div className="fade-rise" style={{ ["--delay" as string]: "170ms" }}>
-            <h1 className="text-4xl font-semibold tracking-tight md:text-6xl">
-              A structured narrative for analytics operations.
-            </h1>
-            <div className="mt-8 space-y-8">
-              {chapters.map((chapter, index) => (
-                <article key={chapter.heading} className="grid gap-3 border-t border-[#d6d6d2] pt-5 md:grid-cols-[100px_1fr]">
-                  <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#6b6b6b]">{String(index + 1).padStart(2, "0")}</p>
+          <article className="fade-rise" style={{ ["--delay" as string]: "170ms" }}>
+            <h1 className="text-4xl font-semibold tracking-tight md:text-6xl">A readable operating manual as a landing page.</h1>
+            <div className="mt-8 space-y-7">
+              {chapters.map(([title, text], index) => (
+                <section key={title} className="grid gap-3 border-t border-[#d6d6d0] pt-5 md:grid-cols-[90px_1fr]">
+                  <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#666]">{String(index + 1).padStart(2, "0")}</p>
                   <div>
-                    <h2 className="text-2xl font-semibold tracking-tight">{chapter.heading}</h2>
-                    <p className="mt-2 text-sm leading-relaxed text-[#474747]">{chapter.body}</p>
+                    <h2 className="text-2xl font-semibold tracking-tight">{title}</h2>
+                    <p className="mt-2 text-sm leading-relaxed text-[#474747]">{text}</p>
                   </div>
-                </article>
+                </section>
               ))}
             </div>
-          </div>
+          </article>
         </section>
       </div>
     </main>

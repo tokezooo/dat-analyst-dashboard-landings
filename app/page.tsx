@@ -1,41 +1,44 @@
 import Link from "next/link";
 
 const variants = [
-  { href: "/v1-minimal", name: "V1", style: "Narrative rail" },
-  { href: "/v2-gradient", name: "V2", style: "Operator split" },
-  { href: "/v3-light", name: "V3", style: "Problem workshop" },
-  { href: "/v4-dark-grid", name: "V4", style: "Dense command ledger" },
-  { href: "/v5-startup", name: "V5", style: "Roadmap + commercial" },
-  { href: "/v6-corporate", name: "V6", style: "Governance brief" },
-  { href: "/v7-neon", name: "V7", style: "Terminal operations" },
-  { href: "/v8-mono", name: "V8", style: "Editorial system" },
-  { href: "/v9-glass", name: "V9", style: "Refraction stack" },
-  { href: "/v10-playful", name: "V10", style: "Storyboard suite" },
+  { href: "/v1-minimal", name: "V1", shape: "Split Rail" },
+  { href: "/v2-gradient", name: "V2", shape: "Band + Metrics" },
+  { href: "/v3-light", name: "V3", shape: "Alternating Story" },
+  { href: "/v4-dark-grid", name: "V4", shape: "Command Matrix" },
+  { href: "/v5-startup", name: "V5", shape: "Roadmap + Pricing" },
+  { href: "/v6-corporate", name: "V6", shape: "Executive Brief" },
+  { href: "/v7-neon", name: "V7", shape: "Scenario Compare" },
+  { href: "/v8-mono", name: "V8", shape: "Editorial Columns" },
+  { href: "/v9-glass", name: "V9", shape: "Layered Panels" },
+  { href: "/v10-playful", name: "V10", shape: "Storyboard Funnel" },
 ];
 
-export default function LandingVariantsIndex() {
+export default function LandingIndexPage() {
   return (
-    <main className="min-h-[100dvh] bg-[#f4f7f4] px-5 py-10 text-[#11201e] md:px-10">
+    <main className="min-h-[100dvh] bg-[#f3f6f4] px-5 py-10 text-[#10201c] md:px-10">
       <div className="mx-auto max-w-[1400px]">
-        <section className="grid gap-8 border border-[#d5ddda] bg-white p-6 md:grid-cols-[1.5fr_1fr] md:p-10">
-          <div className="fade-rise" style={{ ["--delay" as string]: "60ms" }}>
-            <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#3f6f68]">Landing Directory</p>
-            <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight md:text-6xl">
-              Premium landing directions for one analytics product message.
+        <section className="grid gap-6 border border-[#d3ddd8] bg-white p-6 md:grid-cols-[1.5fr_1fr] md:p-9">
+          <div className="fade-rise" style={{ ["--delay" as string]: "50ms" }}>
+            <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#2e6a5d]">Landing Suite</p>
+            <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-6xl">
+              Ten rebuilt landing variants for one analytics product.
             </h1>
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-[#405350]">
-              Each variant has a different information architecture, motion rhythm, and conversion framing. Desktop
-              layouts stay intentionally asymmetric and collapse to one safe mobile column.
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-[#3f5650]">
+              Every route uses a different information architecture so you can test narrative-first, metric-first,
+              and operations-first conversion patterns without changing core messaging.
             </p>
           </div>
 
-          <aside className="fade-rise border border-[#d5ddda] bg-[#f7fbfa] p-5" style={{ ["--delay" as string]: "180ms" }}>
-            <p className="text-sm font-medium text-[#264c46]">Build focus</p>
-            <ul className="mt-4 space-y-3 text-sm text-[#3e4f4c]">
+          <aside
+            className="fade-rise border border-[#d3ddd8] bg-[#f7fbf9] p-5"
+            style={{ ["--delay" as string]: "160ms" }}
+          >
+            <p className="text-sm font-semibold text-[#1f4f45]">Review checklist</p>
+            <ul className="mt-4 space-y-3 text-sm text-[#3f5751]">
+              <li>Distinct layout composition per variant</li>
               <li>Single accent per page</li>
-              <li>No center-biased heroes</li>
-              <li>Clear loading, empty, and error surfaces</li>
-              <li>Tactile `:active` responses on controls</li>
+              <li>Mobile-safe collapse behavior</li>
+              <li>Clear loading/empty/error demonstrations</li>
             </ul>
           </aside>
         </section>
@@ -45,12 +48,12 @@ export default function LandingVariantsIndex() {
             <Link
               key={variant.href}
               href={variant.href}
-              className="btn-press fade-rise group border border-[#d5ddda] bg-white p-5 hover:border-[#2f7f72]"
-              style={{ ["--delay" as string]: `${220 + index * 60}ms` }}
+              className="btn-press fade-rise border border-[#d3ddd8] bg-white p-5 hover:border-[#2e6a5d]"
+              style={{ ["--delay" as string]: `${210 + index * 55}ms` }}
             >
-              <p className="font-mono text-xs uppercase tracking-[0.22em] text-[#3f6f68]">{variant.name}</p>
-              <p className="mt-3 text-xl font-semibold tracking-tight">{variant.style}</p>
-              <p className="mt-2 text-sm text-[#4d5d5b]">Open variant</p>
+              <p className="font-mono text-xs uppercase tracking-[0.22em] text-[#2e6a5d]">{variant.name}</p>
+              <p className="mt-3 text-xl font-semibold tracking-tight">{variant.shape}</p>
+              <p className="mt-2 text-sm text-[#4a615b]">Open landing</p>
             </Link>
           ))}
         </section>
