@@ -1,40 +1,50 @@
 import Link from "next/link";
 
-const features = [
-  "Turn meetings into structured requirements",
-  "Track priorities and blockers in one place",
-  "AI copilots for specs, tasks, and follow-ups",
+const pain = [
+  "Requests arrive in chat threads without context.",
+  "Analysts spend hours restating the same metric definitions.",
+  "Priority shifts are invisible until deadlines are missed.",
+];
+
+const faqs = [
+  { q: "Does this replace BI tools?", a: "No. It organizes request intake, scope, and delivery workflow before dashboards are built." },
+  { q: "Can PMs and analysts collaborate in one view?", a: "Yes. Product, ops, and analytics share the same timeline, owners, and acceptance criteria." },
+  { q: "How fast is setup?", a: "Most teams import their active requests and ship their first scoped batch in under one day." },
 ];
 
 export default function Page() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="mb-8 flex items-center justify-between">
-          <span className="text-sm opacity-80">dat-analyst-dashboard</span>
-          <Link href="/" className="text-sm underline opacity-80 hover:opacity-100">All variants</Link>
+      <section className="mx-auto max-w-5xl px-6 py-20">
+        <div className="flex items-center justify-between text-sm">
+          <span className="font-semibold">dat-analyst-dashboard</span>
+          <Link href="/" className="underline">All variants</Link>
         </div>
 
-        <h1 className="max-w-3xl text-4xl font-bold leading-tight md:text-6xl">
-          Clean Light landing for product analysts who ship faster.
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg opacity-80">
-          A lightweight workspace for requirements, workflows, and AI-assisted planning — built to keep teams aligned.
-        </p>
+        <h1 className="mt-8 text-4xl font-bold md:text-6xl">Stop guessing what stakeholders meant.</h1>
+        <p className="mt-4 text-lg text-slate-600">Convert every request into clear scope, owners, and done criteria.</p>
 
-        <div className="mt-10 flex flex-wrap gap-4">
-          <button className="rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 px-6 py-3 font-semibold text-white shadow-lg">Start free</button>
-          <button className="rounded-xl border border-current/30 px-6 py-3 font-semibold">Book demo</button>
-        </div>
+        <section className="mt-14">
+          <h2 className="text-2xl font-semibold">The common breakdown</h2>
+          <ul className="mt-4 space-y-3">
+            {pain.map((item) => (
+              <li key={item} className="rounded-lg border border-slate-200 bg-slate-50 p-4">{item}</li>
+            ))}
+          </ul>
+        </section>
 
-        <div className="mt-16 grid gap-4 md:grid-cols-3">
-          {features.map((item) => (
-            <article key={item} className="rounded-2xl border border-current/15 bg-white/5 p-5 backdrop-blur">
-              <h2 className="text-lg font-semibold">{item}</h2>
-              <p className="mt-2 text-sm opacity-75">Simple setup, clear ownership, fast iteration.</p>
-            </article>
-          ))}
-        </div>
+        <section className="mt-14 rounded-2xl border border-slate-200 p-8">
+          <h2 className="text-2xl font-semibold">FAQ</h2>
+          <div className="mt-6 space-y-4">
+            {faqs.map((item) => (
+              <article key={item.q} className="rounded-lg bg-slate-50 p-4">
+                <h3 className="font-semibold">{item.q}</h3>
+                <p className="mt-1 text-slate-600">{item.a}</p>
+              </article>
+            ))}
+          </div>
+          <button className="mt-8 rounded-lg bg-sky-600 px-6 py-3 font-semibold text-white">Book onboarding call</button>
+        </section>
       </section>
     </main>
   );

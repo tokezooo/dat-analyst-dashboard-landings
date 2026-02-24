@@ -1,40 +1,41 @@
 import Link from "next/link";
 
-const features = [
-  "Turn meetings into structured requirements",
-  "Track priorities and blockers in one place",
-  "AI copilots for specs, tasks, and follow-ups",
+const steps = [
+  { title: "Capture", detail: "Drop meeting notes, SQL snippets, and requests in one stream." },
+  { title: "Clarify", detail: "AI turns rough asks into scoped, testable dashboard requirements." },
+  { title: "Ship", detail: "Assign owners, due dates, and blockers without leaving the page." },
 ];
 
 export default function Page() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="mb-8 flex items-center justify-between">
-          <span className="text-sm opacity-80">dat-analyst-dashboard</span>
-          <Link href="/" className="text-sm underline opacity-80 hover:opacity-100">All variants</Link>
+    <main className="min-h-screen bg-slate-50 text-slate-900">
+      <section className="mx-auto max-w-4xl px-6 py-20">
+        <div className="flex items-center justify-between text-sm">
+          <span className="font-semibold">dat-analyst-dashboard</span>
+          <Link href="/" className="underline">All variants</Link>
         </div>
 
-        <h1 className="max-w-3xl text-4xl font-bold leading-tight md:text-6xl">
-          Minimal Blue landing for product analysts who ship faster.
+        <h1 className="mt-10 text-4xl font-bold leading-tight md:text-6xl">
+          Turn fuzzy analytics asks into approved dashboard work.
         </h1>
-        <p className="mt-6 max-w-2xl text-lg opacity-80">
-          A lightweight workspace for requirements, workflows, and AI-assisted planning — built to keep teams aligned.
+        <p className="mt-6 max-w-2xl text-lg text-slate-600">
+          A minimal workspace for analyst teams that need tighter requirements and faster handoffs.
         </p>
 
         <div className="mt-10 flex flex-wrap gap-4">
-          <button className="rounded-xl bg-gradient-to-r from-blue-500 to-cyan-400 px-6 py-3 font-semibold text-white shadow-lg">Start free</button>
-          <button className="rounded-xl border border-current/30 px-6 py-3 font-semibold">Book demo</button>
+          <button className="rounded-lg bg-slate-900 px-6 py-3 font-semibold text-white">Start free</button>
+          <button className="rounded-lg border border-slate-300 px-6 py-3 font-semibold">See workflow</button>
         </div>
 
-        <div className="mt-16 grid gap-4 md:grid-cols-3">
-          {features.map((item) => (
-            <article key={item} className="rounded-2xl border border-current/15 bg-white/5 p-5 backdrop-blur">
-              <h2 className="text-lg font-semibold">{item}</h2>
-              <p className="mt-2 text-sm opacity-75">Simple setup, clear ownership, fast iteration.</p>
-            </article>
+        <ol className="mt-16 space-y-6 border-l border-slate-300 pl-6">
+          {steps.map((step, index) => (
+            <li key={step.title}>
+              <p className="text-sm text-slate-500">Step {index + 1}</p>
+              <h2 className="text-xl font-semibold">{step.title}</h2>
+              <p className="mt-1 text-slate-600">{step.detail}</p>
+            </li>
           ))}
-        </div>
+        </ol>
       </section>
     </main>
   );

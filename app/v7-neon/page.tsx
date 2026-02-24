@@ -1,40 +1,61 @@
 import Link from "next/link";
 
-const features = [
-  "Turn meetings into structured requirements",
-  "Track priorities and blockers in one place",
-  "AI copilots for specs, tasks, and follow-ups",
+const comparisons = [
+  { label: "Manual docs", old: "Scattered", now: "Unified spec board" },
+  { label: "Priority reviews", old: "Weekly meetings", now: "Live impact scoring" },
+  { label: "Status updates", old: "Ad-hoc messages", now: "Auto digest" },
 ];
 
 export default function Page() {
   return (
-    <main className="min-h-screen bg-black text-white">
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="mb-8 flex items-center justify-between">
-          <span className="text-sm opacity-80">dat-analyst-dashboard</span>
-          <Link href="/" className="text-sm underline opacity-80 hover:opacity-100">All variants</Link>
+    <main className="min-h-screen bg-black text-lime-100">
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <div className="flex items-center justify-between text-sm text-lime-300/80">
+          <span className="font-semibold">dat-analyst-dashboard</span>
+          <Link href="/" className="underline">All variants</Link>
         </div>
 
-        <h1 className="max-w-3xl text-4xl font-bold leading-tight md:text-6xl">
-          Neon landing for product analysts who ship faster.
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg opacity-80">
-          A lightweight workspace for requirements, workflows, and AI-assisted planning — built to keep teams aligned.
-        </p>
+        <div className="mt-10 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+          <div>
+            <h1 className="text-4xl font-bold leading-tight text-lime-300 md:text-6xl">Neon ops mode for fast-moving analytics teams.</h1>
+            <p className="mt-5 max-w-xl text-lime-100/80">Swap long status threads for one live control panel that tracks scope, owners, and risk.</p>
+            <button className="mt-8 rounded-lg border border-lime-400 bg-lime-300 px-6 py-3 font-semibold text-black shadow-[0_0_24px_rgba(163,230,53,0.55)]">
+              Enter neon mode
+            </button>
+          </div>
 
-        <div className="mt-10 flex flex-wrap gap-4">
-          <button className="rounded-xl bg-gradient-to-r from-lime-400 to-emerald-500 px-6 py-3 font-semibold text-white shadow-lg">Start free</button>
-          <button className="rounded-xl border border-current/30 px-6 py-3 font-semibold">Book demo</button>
+          <pre className="overflow-x-auto rounded-2xl border border-lime-500/40 bg-zinc-950 p-5 text-sm text-lime-300">
+{`> queue sync
+4 new requests scored
+2 blockers escalated
+1 scope approved
+
+> next best action
+Draft acceptance criteria
+for "weekly retention health"`}
+          </pre>
         </div>
 
-        <div className="mt-16 grid gap-4 md:grid-cols-3">
-          {features.map((item) => (
-            <article key={item} className="rounded-2xl border border-current/15 bg-white/5 p-5 backdrop-blur">
-              <h2 className="text-lg font-semibold">{item}</h2>
-              <p className="mt-2 text-sm opacity-75">Simple setup, clear ownership, fast iteration.</p>
-            </article>
-          ))}
-        </div>
+        <section className="mt-12 overflow-hidden rounded-2xl border border-lime-500/30">
+          <table className="w-full text-left text-sm">
+            <thead className="bg-lime-900/40 text-lime-300">
+              <tr>
+                <th className="px-4 py-3">Workflow</th>
+                <th className="px-4 py-3">Before</th>
+                <th className="px-4 py-3">With dat-analyst-dashboard</th>
+              </tr>
+            </thead>
+            <tbody>
+              {comparisons.map((item) => (
+                <tr key={item.label} className="border-t border-lime-500/20 bg-black/40">
+                  <td className="px-4 py-3 text-lime-100">{item.label}</td>
+                  <td className="px-4 py-3 text-lime-100/70">{item.old}</td>
+                  <td className="px-4 py-3">{item.now}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
       </section>
     </main>
   );

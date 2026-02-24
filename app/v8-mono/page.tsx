@@ -1,40 +1,46 @@
 import Link from "next/link";
 
-const features = [
-  "Turn meetings into structured requirements",
-  "Track priorities and blockers in one place",
-  "AI copilots for specs, tasks, and follow-ups",
+const chapters = [
+  { title: "Intake", text: "Collect every dashboard request with owner, metric, and decision deadline." },
+  { title: "Refinement", text: "Generate requirement drafts, assumptions, and risk notes from raw context." },
+  { title: "Delivery", text: "Track build state and publish updates in a single narrative timeline." },
 ];
 
 export default function Page() {
   return (
     <main className="min-h-screen bg-neutral-100 text-neutral-900">
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="mb-8 flex items-center justify-between">
-          <span className="text-sm opacity-80">dat-analyst-dashboard</span>
-          <Link href="/" className="text-sm underline opacity-80 hover:opacity-100">All variants</Link>
+      <section className="mx-auto max-w-5xl px-6 py-20">
+        <div className="flex items-center justify-between text-sm">
+          <span className="font-semibold">dat-analyst-dashboard</span>
+          <Link href="/" className="underline">All variants</Link>
         </div>
 
-        <h1 className="max-w-3xl text-4xl font-bold leading-tight md:text-6xl">
-          Monochrome landing for product analysts who ship faster.
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg opacity-80">
-          A lightweight workspace for requirements, workflows, and AI-assisted planning — built to keep teams aligned.
-        </p>
+        <div className="mt-12 grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+          <aside className="border-l-4 border-neutral-900 pl-5">
+            <p className="text-sm uppercase tracking-widest">Editorial brief</p>
+            <p className="mt-4 text-lg">
+              Give analysts one black-and-white operating page to reduce ambiguity and increase delivery cadence.
+            </p>
+          </aside>
 
-        <div className="mt-10 flex flex-wrap gap-4">
-          <button className="rounded-xl bg-gradient-to-r from-neutral-900 to-neutral-700 px-6 py-3 font-semibold text-white shadow-lg">Start free</button>
-          <button className="rounded-xl border border-current/30 px-6 py-3 font-semibold">Book demo</button>
+          <div>
+            <h1 className="text-4xl font-bold leading-tight md:text-6xl">Monochrome, text-first landing narrative.</h1>
+            <p className="mt-5 text-neutral-700">Designed for teams who prefer clear hierarchy and dense information over decorative UI.</p>
+            <button className="mt-8 rounded-none border-2 border-neutral-900 px-6 py-3 font-semibold">Request access</button>
+          </div>
         </div>
 
-        <div className="mt-16 grid gap-4 md:grid-cols-3">
-          {features.map((item) => (
-            <article key={item} className="rounded-2xl border border-current/15 bg-white/5 p-5 backdrop-blur">
-              <h2 className="text-lg font-semibold">{item}</h2>
-              <p className="mt-2 text-sm opacity-75">Simple setup, clear ownership, fast iteration.</p>
+        <section className="mt-16 space-y-8">
+          {chapters.map((chapter, index) => (
+            <article key={chapter.title} className="grid gap-2 border-t border-neutral-400 pt-6 md:grid-cols-[120px_1fr]">
+              <p className="font-mono text-sm text-neutral-600">0{index + 1}</p>
+              <div>
+                <h2 className="text-2xl font-semibold">{chapter.title}</h2>
+                <p className="mt-1 text-neutral-700">{chapter.text}</p>
+              </div>
             </article>
           ))}
-        </div>
+        </section>
       </section>
     </main>
   );
